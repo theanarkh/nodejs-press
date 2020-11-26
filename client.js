@@ -7,7 +7,7 @@ function worker() {
     request(); 
   }
   const detal = Date.now() - start;
-  nextStart = requestInterval - (detal / 1000) * 1000 - detal % 1000;
+  nextStart = requestInterval - detal;
   next();
 }
 worker();

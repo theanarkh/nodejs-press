@@ -8,8 +8,12 @@ function worker() {
   }
   const detal = Date.now() - start;
   nextStart = requestInterval - (detal / 1000) * 1000 - detal % 1000;
+  next();
 }
 worker();
-setInterval(() => {
-  worker(); 
-}, nextStart);
+next();
+function next() {
+   setTimeout(() => {
+      worker(); 
+   }, nextStart);
+}
